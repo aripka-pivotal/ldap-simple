@@ -19,11 +19,12 @@ import org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopul
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	//local ldif testing versions
 	// private String ldapURL = "ldap://localhost:8389";
 	// private String rootDn = "dc=springframework,dc=org";
 	// private String ldapUserSearchBase = "ou=people";
-	private String ldapUserSearchFilter = "uid={0}";
 	// private String ldapGroupSearchBase = "ou=groups";
+	private String ldapUserSearchFilter = "uid={0}";
 	private String ldapURL = "ldap://ldap.forumsys.com:389";
 	private String rootDn = "dc=example,dc=com";
 	private String ldapUserSearchBase = "";
