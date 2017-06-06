@@ -1,0 +1,14 @@
+---
+applications:
+- name: ldapdemo
+  memory: 512M
+  host: ldapdemp
+  path: target/ldap-simple-0.0.1-SNAPSHOT.jar
+  env:
+    ldap.url: ldap://ldap.forumsys.com:389
+    ldap.rootDN: dc=example,dc=com
+    ldap.search.base.user: ""
+    ldap.search.base.group: ""
+    ldap.search.filter.user: uid={0}
+    ldap.search.filter.group: (uniqueMember={0})
+  
