@@ -1,0 +1,35 @@
+#below properties fired only for default profile.
+
+spring:
+  profiles: default
+  ldap:
+    embedded:
+      ldif: classpath:test-server.ldif
+      base-dn: dc=springframework,dc=org
+      port: 8389
+ldap:
+  url: ldap://localhost:8389
+  rootDN: dc=springframework,dc=org
+  search:
+    base:
+      user: ou=people
+      group: ou=groups
+    filter:
+      user: uid={0}
+      group: (uniqueMember={0})
+---
+#below properties for remote sample LDAP testing
+
+spring: 
+  profiles: remoteLDAP
+ldap:
+  url: ldap://ldap.forumsys.com:389
+  rootDN: dc=example,dc=com
+  search:
+    base:
+      user: ~
+      group: ~
+    filter:
+      user: uid={0}
+      group: (uniqueMember={0})
+    
