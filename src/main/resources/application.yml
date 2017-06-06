@@ -17,6 +17,9 @@ ldap:
     filter:
       user: uid={0}
       group: (uniqueMember={0})
+management:
+  security:
+    enabled: false
 ---
 #below properties for remote sample LDAP testing
 
@@ -32,4 +35,7 @@ ldap:
     filter:
       user: uid={0}
       group: (uniqueMember={0})
+management:
+  security:
+    enabled: false
     
