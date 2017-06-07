@@ -38,6 +38,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Value("${ldap.search.filter.group}")
 	private String ldapGroupFilter;
 
+	@Value("${ldap.serviceAccount.DN}")
+	private String serviceAccountDN;
+
+	@Value("${ldap.serviceAccount.pwd}")
+	private String bindPWD;
+
+	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(ldapAuthenticationProvider());
@@ -53,8 +60,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public AuthenticationProvider ldapAuthenticationProvider() throws Exception {
+		
+		//this is what needs to change
 		DefaultSpringSecurityContextSource contextSource = new DefaultSpringSecurityContextSource(
 				Arrays.asList(ldapURL), rootDn);
+		
+		contextSource.setUserDn(serviceAccountDN);
+		contextSource.setPassword(bindPWD);
+		
 		contextSource.afterPropertiesSet();
 		LdapUserSearch ldapUserSearch = new FilterBasedLdapUserSearch(ldapUserSearchBase, ldapUserSearchFilter,
 				contextSource);

@@ -11,4 +11,7 @@ applications:
     ldap.search.base.group: ""
     ldap.search.filter.user: uid={0}
     ldap.search.filter.group: (uniqueMember={0})
+    ldap.serviceAccount.DN: cn=read-only-admin,dc=example,dc=com
+    ldap.serviceAccount.pwd: password
+    
   

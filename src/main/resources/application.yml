@@ -7,6 +7,9 @@ spring:
       ldif: classpath:test-server.ldif
       base-dn: dc=springframework,dc=org
       port: 8389
+      credential:
+        username: DN=testDN
+        password: testDNPWD
 ldap:
   url: ldap://localhost:8389
   rootDN: dc=springframework,dc=org
@@ -17,6 +20,11 @@ ldap:
     filter:
       user: uid={0}
       group: (uniqueMember={0})
+  serviceAccount:
+    DN: DN=testDN
+    pwd: testDNPWD
+  
+  
 ---
 #below properties for remote sample LDAP testing
 
@@ -32,9 +40,9 @@ ldap:
     filter:
       user: uid={0}
       group: (uniqueMember={0})
-management:
-  security:
-    enabled: false
+  serviceAccount:
+    DN: cn=read-only-admin,dc=example,dc=com
+    pwd: password
 
 ---
 
