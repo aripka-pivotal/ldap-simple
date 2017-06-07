@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Demo LDAP integrated application for PCF</title>
+<link rel="stylesheet" href="css/foundation.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<nav class="top-bar">
+		<ul class="title-area">
+			<li class="name">
+				<h1>
+					<a href="./">Demo LDAP integrated application for PCF</a>
+				</h1>
+			</li>
+		</ul>
+		<section class="top-bar-section">
+			<ul class="right">
+				<li><a href="javascript: document.logoutForm.submit()">Logout</a></li>
+			</ul>
+		</section>
+	</nav>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h3 style="color: #01786E">Welcome to Pivotal Cloud Foundry</h3>
+			<hr />
+		</div>
+	</div>
+
+
+
+	<form name="logoutForm" th:action="@{/logout}" method="post"
+		th:hidden="true">
+		<input hidden="true" type="submit" value="Sign Out" />
+	</form>
+
+</body>
+
+</html>
