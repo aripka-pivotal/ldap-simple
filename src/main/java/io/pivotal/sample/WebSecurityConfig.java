@@ -23,8 +23,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Value("${ldap.url}")
 	private String ldapURL;
 
-	@Value("${ldap.rootDN}")
-	private String rootDn;
+//	@Value("${ldap.rootDN}")
+//	private String rootDn;
 
 	@Value("${ldap.search.base.user}")
 	private String ldapUserSearchBase;
@@ -52,7 +52,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	 @Override
 	 protected void configure(HttpSecurity http) throws Exception {
-	 // TODO Auto-generated method stub
 	 
 		 http.authorizeRequests().antMatchers("/login").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").failureUrl("/login-error").permitAll();
 		}
@@ -61,9 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean
 	public AuthenticationProvider ldapAuthenticationProvider() throws Exception {
 		
-		//this is what needs to change
-		DefaultSpringSecurityContextSource contextSource = new DefaultSpringSecurityContextSource(
-				Arrays.asList(ldapURL), rootDn);
+		DefaultSpringSecurityContextSource contextSource = new DefaultSpringSecurityContextSource(ldapURL);
+		
 		
 		contextSource.setUserDn(serviceAccountDN);
 		contextSource.setPassword(bindPWD);

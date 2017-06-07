@@ -11,8 +11,7 @@ spring:
         username: DN=testDN
         password: testDNPWD
 ldap:
-  url: ldap://localhost:8389
-  rootDN: dc=springframework,dc=org
+  url: ldap://localhost:8389/dc=springframework,dc=org
   search:
     base:
       user: ou=people
@@ -31,8 +30,7 @@ ldap:
 spring: 
   profiles: remoteLDAP
 ldap:
-  url: ldap://ldap.forumsys.com:389
-  rootDN: dc=example,dc=com
+  url: ldap://ldap.forumsys.com:389/dc=example,dc=com
   search:
     base:
       user: ~
