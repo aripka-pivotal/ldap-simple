@@ -21,6 +21,8 @@ public class HomeController {
 		for (GrantedAuthority auth : userDetails.getAuthorities()) {
 			System.out.println(auth);
 		}
+		
+		model.addAttribute("authorities", userDetails.getAuthorities());
 
 		return "index";
 	}

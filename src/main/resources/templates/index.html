@@ -26,16 +26,27 @@
 		<div class="large-12 columns">
 			<h3 style="color: #01786E">Welcome to Pivotal Cloud Foundry</h3>
 			<hr />
+
+			<h4 style="color: #01786E">Authorities</h4>
 		</div>
 	</div>
 
-
+	<div class="row">
+		<div class="large-12 columns">
+			<table>
+				<tbody>
+					<ul th:each="auth : ${authorities}">
+						<li th:text="${auth.authority}" />
+					</ul>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 	<form name="logoutForm" th:action="@{/logout}" method="post"
 		th:hidden="true">
 		<input hidden="true" type="submit" value="Sign Out" />
 	</form>
-
 </body>
 
 </html>
