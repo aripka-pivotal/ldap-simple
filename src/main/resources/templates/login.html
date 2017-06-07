@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Demo LDAP integrated application for PCF</title>
+<link rel="stylesheet" href="css/foundation.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<nav class="top-bar">
+		<ul class="title-area">
+			<li class="name">
+				<h1>
+					<a href="./">Demo LDAP integrated application for PCF</a>
+				</h1>
+			</li>
+		</ul>
+		<section class="top-bar-section">
+			<ul class="right">
+			</ul>
+		</section>
+	</nav>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<h3 style="color: #01786E">Login Page</h3>
+			<hr />
+		</div>
+	</div>
+
+
+	<div class="row">
+
+		<p th:if="${loginError}" class="error">
+			<p th:text="${message}"/>
+
+		</p>
+		<form th:action="@{/login}" method="post">
+			<label for="username">Username</label><input type="text"
+				id="username" name="username" autofocus="autofocus" /> <br /> <label
+				for="password">Password</label><input type="password"
+				id="password" name="password" /> <br /> <input type="submit"
+				class="medium button" value="Log in" />
+		</form>
+	</div>
+</body>
+
+</html>
