@@ -34,6 +34,16 @@ objectclass: top
 objectclass: organizationalUnit
 ou: otherpeople
 
+dn: cn=Ben Alex by CN,ou=people,dc=springframework,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Ben Alex by CN
+sn: Alex
+uid: bencn
+userPassword: pwd
+
 dn: uid=ben,ou=people,dc=springframework,dc=org
 objectclass: top
 objectclass: person
@@ -42,7 +52,8 @@ objectclass: inetOrgPerson
 cn: Ben Alex
 sn: Alex
 uid: ben
-userPassword: {SHA}nFCebWjxfaLbHHG1Qk5UU4trbvQ=
+userPassword: pwd
+
 
 dn: uid=bob,ou=people,dc=springframework,dc=org
 objectclass: top
@@ -104,8 +115,6 @@ sn: Cadet
 uid: space cadet
 userPassword: spacecadetspassword
 
-
-
 dn: cn=developers,ou=groups,dc=springframework,dc=org
 objectclass: top
 objectclass: groupOfUniqueNames
@@ -127,4 +136,5 @@ objectclass: top
 objectclass: groupOfUniqueNames
 cn: submanagers
 ou: submanager
+uniqueMember: cn=Ben Alex by CN,ou=people,dc=springframework,dc=org
 uniqueMember: uid=ben,ou=people,dc=springframework,dc=org
